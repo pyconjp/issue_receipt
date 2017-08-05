@@ -1,0 +1,102 @@
+
+body.A4 .sheet { width: 210mm; height: 296mm }
+
+.sheet {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  page-break-after: always;
+}
+
+.title {
+  margin: 20,20,20,20;
+}
+
+.title h1{
+  text-align: center;
+}
+
+.title hr{
+  width: 200mm;
+}
+
+.issue_date{
+  text-align: right;
+  margin-right: 20px;
+  margin-bottom: 100px;
+}
+
+.name{
+  width:85mm;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.name p{
+  font-size: 18px;
+  text-align: right;
+}
+
+.name hr{
+  width: 85mm;
+  margin-left: 5px;
+}
+
+.total_price {
+  width: 85mm;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.total_price p.message{
+  text-align: left;
+  font-size: 13px;
+}
+
+.total_price p.price{
+  text-align: right;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.total_price hr{
+  width: 85mm;
+  margin-left: 8px;
+}
+
+.detail{
+  width: 85mm;
+  margin-left: 20px;
+}
+
+.detail p{
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.company{
+  margin-top: 50px;
+  margin-right: 20px;
+  float: right;
+}
+
+.company p{
+  text-align: left;
+}
+
+/* 印刷時のサイズをA4ヨコに設定*/
+@page {
+  size: A4;
+  margin: 0;
+ }
+
+/* 画面表示の設定 */
+@media screen{
+  .sheet{
+    background: white;
+    page-break-after: always;
+    box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
+    margin: 5mm;
+  }
+}
