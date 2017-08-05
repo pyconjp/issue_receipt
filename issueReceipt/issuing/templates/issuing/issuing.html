@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+  <title>PyCon JP 領収書発行ページ</title>
+  <meta charset="utf-8" http-equiv="content-type" content="ja"/>
+</head>
+
+<body>
+
+<form method="POST">{% csrf_token %}
+  <p><label for="{{ form.register_id.id_for_label }}">受付番号:</label>{{ form.register_id }} {{ form.error }}</p>
+  <button type="submit">発行</button>
+</form>
+
+</body>
