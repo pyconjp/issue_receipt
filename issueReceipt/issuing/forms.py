@@ -4,4 +4,4 @@ from .models import Attendee
 class AttendeeForm(forms.ModelForm):
     class Meta:
         model = Attendee
-        fields = ('register_id',)
+        fields = ('register_id','register_name')
