@@ -7,7 +7,13 @@
 <body>
 
 <form method="POST">{% csrf_token %}
-  <p><label for="{{ form.register_id.id_for_label }}">受付番号:</label>{{ form.register_id }} {{ form.error }}</p>
+  <p><label for="{{ form.register_id.id_for_label }}">受付番号: </label>{{ form.register_id }}</p>
+  <p><label for="{{ form.register_name.id_for_label }}">connpass ID: </label>{{ form.register_name}}</p>
+  {% if form.error %}
+    <p>{{ form.error }}</p>
+  {% else %}
+    <p>&nbsp;</p>
+  {% endif %}
   <button type="submit">発行</button>
 </form>
 
