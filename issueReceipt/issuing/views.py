@@ -16,6 +16,7 @@ def issuing(request):
             try:
                 model = Attendee.objects.get(register_id=form.cleaned_data['register_id'],register_name=form.cleaned_data['register_name'])
                 form.register_type = model.register_type
+                form.id = str(form.cleaned_data['register_id'])
                 if model.register_type == "Business":
                     form.price = "15,000"
                 elif model.register_type == "Patron":
