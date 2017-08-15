@@ -1,3 +1,3 @@
 # issue_receipt
 
-* PyCon JP Businessチケット・Patronチケットの領収書発行ページです。
+* PyCon JP Businessチケット・Patronチケット・Tutorialチケットの領収書発行ページです。

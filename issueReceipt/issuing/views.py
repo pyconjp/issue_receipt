@@ -21,6 +21,8 @@ def issuing(request):
                     form.price = "15,000"
                 elif model.register_type == "Patron":
                     form.price = "40,000"
+                elif model.register_type == "Tutorial":
+                    form.price = "4,000"
                 form.issue_date = issue_date
                 form.pycon = pycon
                 return render(request,'issuing/receipt.html',{'form':form})
