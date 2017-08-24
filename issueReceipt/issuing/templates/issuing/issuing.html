@@ -2,19 +2,22 @@
 <head>
   <title>PyCon JP 領収書発行ページ</title>
   <meta charset="utf-8" http-equiv="content-type" content="ja"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 </head>
 
 <body>
-
-<form method="POST">{% csrf_token %}
-  <p><label for="{{ form.register_id.id_for_label }}">受付番号: </label>{{ form.register_id }}</p>
-  <p><label for="{{ form.register_name.id_for_label }}">connpass ID: </label>{{ form.register_name}}</p>
-  {% if form.error %}
-    <p>{{ form.error }}</p>
-  {% else %}
-    <p>&nbsp;</p>
-  {% endif %}
-  <button type="submit">発行</button>
-</form>
+<div class="container">
+    <form method="POST">{% csrf_token %}
+      <p><label for="{{ form.register_id.id_for_label }}">受付番号:</label>{{ form.register_id }}</p>
+      <p><label for="{{ form.register_name.id_for_label }}">connpass ID: </label>{{ form.register_name}}</p>
+      {% if form.error %}
+        <p>{{ form.error }}</p>
+      {% else %}
+        <p>&nbsp;</p>
+      {% endif %}
+      <button type="submit">発行</button>
+    </form>
+</div>
 
 </body>
