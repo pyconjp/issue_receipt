@@ -1,1 +1,20 @@
+.intro{
+    margin-bottom: 35px;
+}
 
+.intro p{
+    font-size: 18px;
+    line-height: 2;
+}
+
+.input{
+    margin-left:
+}
+
+.id.form-control{
+    width: 150px;
+}
+
+.name.form-control{
+    width: 300px;
+}
