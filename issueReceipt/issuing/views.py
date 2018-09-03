@@ -1,7 +1,10 @@
+from datetime import datetime
+
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
+
 from .models import Attendee
 from .forms import AttendeeForm
-from datetime import datetime
 
 
 def issuing(request):
@@ -32,7 +35,7 @@ def issuing(request):
                 form.issue_date = issue_date
                 form.pycon = pycon
                 return render(request, 'issuing/receipt.html', {'form': form})
-            except:
+            except ObjectDoesNotExist:
                 form.error = '入力された受付番号・connpass IDに該当する領収書が見つかりませんでした。'
                 return render(request, 'issuing/issuing.html', {'form': form})
     else:
