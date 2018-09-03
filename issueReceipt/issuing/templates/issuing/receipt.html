@@ -1,51 +1,53 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<head>
-  <title>PyCon JP 領収書</title>
-  <meta charset="utf-8" http-equiv="content-type" content="ja"/>
-  <link rel="stylesheet" href="{% static 'css/receipt.css' %}" />
-</head>
+<html>
+    <head>
+      <title>PyCon JP 領収書</title>
+      <meta charset="utf-8" http-equiv="content-type" content="ja"/>
+      <link rel="stylesheet" href="{% static 'css/receipt.css' %}" />
+    </head>
 
-<body class="A4">
-  <section class="sheet">
+    <body class="A4">
+      <section class="sheet">
 
-    <div class="title">
-      <h1>領収書</h>
-      <hr />
-    </div>
+        <div class="title">
+          <h1>領収書</h>
+          <hr />
+        </div>
 
-    <div class="issue_info">
-      <p>
-      発行日　: {{ form.issue_date }}<br />
-      受付番号: {{ form.id }}</p>
-    </div>
+        <div class="issue_info">
+          <p>
+          発行日　: {{ form.issue_date }}<br />
+          受付番号: {{ form.id }}</p>
+        </div>
 
-    <div class="name">
-      <p>様</p>
-      <hr />
-    </div>
+        <div class="name">
+          <p>様</p>
+          <hr />
+        </div>
 
-    <div class="total_price">
-      <p class="message">合計金額（消費税込）</p>
-      <p class="price">￥{{ form.price }}―</p>
-      <hr />
-    </div>
+        <div class="total_price">
+          <p class="message">合計金額（消費税込）</p>
+          <p class="price">￥{{ form.price }}―</p>
+          <hr />
+        </div>
 
-    <div class="detail">
-      <p>但し、{{ form.pycon }}{{ form.register_type }}参加費として、上記領収致しました。</p>
-    </div>
+        <div class="detail">
+          <p>但し、{{ form.pycon }}{{ form.register_type }}参加費として、上記領収致しました。</p>
+        </div>
 
-    <div class="company">
-      <p>
-        〒110-0015<br />
-        東京都台東区東上野1-11-1<br />
-        GOSHO春日通りビル9F<br />
-        一般社団法人 PyCon JP<br />
-        E-mail: contact@pycon.jp<br />
-        <img src={% static 'img/PyConJP_stamp.png' %} />
-      </p>
-    </div>
+        <div class="company">
+          <p>
+            〒110-0015<br />
+            東京都台東区東上野1-11-1<br />
+            GOSHO春日通りビル9F<br />
+            一般社団法人 PyCon JP<br />
+            E-mail: contact@pycon.jp<br />
+            <img src={% static 'img/PyConJP_stamp.png' %} />
+          </p>
+        </div>
 
-  </section>
+      </section>
 
-</body>
+    </body>
+</html>

@@ -1,52 +1,54 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<head>
-  <title>PyCon JP 領収書発行ページ</title>
-  <meta charset="utf-8" http-equiv="content-type" content="ja"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-  <link rel="stylesheet" href="{% static 'css/issuing.css' %}" />
-</head>
+<html>
+    <head>
+      <title>PyCon JP 領収書発行ページ</title>
+      <meta charset="utf-8" http-equiv="content-type" content="ja"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+      <link rel="stylesheet" href="{% static 'css/issuing.css' %}" />
+    </head>
 
-<body>
+    <body>
 
-<div class="container">
+    <div class="container">
 
-    <!-- PyCon JPロゴ -->
-    <img src="{% static 'img/color_yoko_2018.png' %}">
+        <!-- PyCon JPロゴ -->
+        <img src="{% static 'img/color_yoko_2018.png' %}">
 
-    <!-- 説明 -->
-    <div class="intro">
-        <p>
-            <a href="https://pycon.jp/2018/" target="_blank">PyCon JP 2018</a>の領収書発行Webサイトです。<br>
-            対象チケットは<strong>Business</strong>, <strong>Patron</strong>, <strong>Tutorial</strong>です。
-        </p>
+        <!-- 説明 -->
+        <div class="intro">
+            <p>
+                <a href="https://pycon.jp/2018/" target="_blank">PyCon JP 2018</a>の領収書発行Webサイトです。<br>
+                対象チケットは<strong>Business</strong>, <strong>Patron</strong>, <strong>Tutorial</strong>です。
+            </p>
+        </div>
+
+        <!-- 入力フォーム -->
+        <div class="input">
+            <form method="POST">{% csrf_token %}
+
+                <div class="form-group">
+                    <label for="{{ form.register_id.id_for_label }}">受付番号</label>
+                    <input type="text" class="id form-control" name="register_id" maxlength="7" required id="id_register_id" />
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.register_name.id_for_label}}">connpass ID</label>
+                    <input type="text" class="name form-control" name="register_name" value=" " maxlength="50" required id="id_register_name" />
+                </div>
+
+              {% if form.error %}
+                <p>{{ form.error }}</p>
+              {% else %}
+                <p>&nbsp;</p>
+              {% endif %}
+
+            <button type="submit" class="btn btn-default">発行</button>
+            </form>
+        </div>
+
     </div>
 
-    <!-- 入力フォーム -->
-    <div class="input">
-        <form method="POST">{% csrf_token %}
-
-            <div class="form-group">
-                <label for="{{ form.register_id.id_for_label }}">受付番号</label>
-                <input type="text" class="id form-control" name="register_id" maxlength="6" required id="id_register_id" />
-            </div>
-            <div class="form-group">
-                <label for="{{ form.register_name.id_for_label}}">connpass ID</label>
-                <input type="text" class="name form-control" name="register_name" value=" " maxlength="50" required id="id_register_name" />
-            </div>
-
-          {% if form.error %}
-            <p>{{ form.error }}</p>
-          {% else %}
-            <p>&nbsp;</p>
-          {% endif %}
-
-        <button type="submit" class="btn btn-default">発行</button>
-        </form>
-    </div>
-
-</div>
-
-</body>
+    </body>
+</html>
