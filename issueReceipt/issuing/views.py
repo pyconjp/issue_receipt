@@ -28,6 +28,8 @@ def issuing(request):
                 form.id = str(form.cleaned_data['register_id'])
                 if model.register_type == "Business":
                     form.price = "15,000"
+                if model.register_type == "Business (fees separately)":
+                    form.price = "15,000"
                 elif model.register_type == "Patron":
                     form.price = "40,000"
                 elif model.register_type == "Tutorial":
