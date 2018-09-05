@@ -8,7 +8,7 @@
 
 ### データの入れ替え
 
-- `attendee_master_xxxx.sqlite3`を`issueReceipt`に配置する
+- `attendee_master_{year}.sqlite3`を`issueReceipt`に配置する
 
 - `issueReceipt/issueReceipt/settings.py`の以下の箇所を配置したファイルに合わせて書き換える
 
@@ -16,7 +16,7 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'attendee_master_xxxx.sqlite3')
+        'NAME': os.path.join(BASE_DIR, 'attendee_master_{year}.sqlite3')
     }
 }
 ```
